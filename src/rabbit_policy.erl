@@ -270,7 +270,7 @@ list_op(VHost) ->
     list0_op(VHost, fun ident/1).
 
 list_formatted_op(VHost) ->
-    order_policies(list0_op(VHost, fun format/1)).
+    order_policies(list0_op(VHost, fun rabbit_json:encode/1)).
 
 list_formatted_op(VHost, Ref, AggregatorPid) ->
     rabbit_control_misc:emitting_map(AggregatorPid, Ref,
